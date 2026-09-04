@@ -329,8 +329,13 @@ export function startCodeEnvironmentLifecycleReconciler(
   if (reconcileTimer != null) return;
   const run = (): void => {
     if (reconcileInFlight != null) return;
+    // Wait for initial connection before attempting lifecycle reconciliation
     const current = reconcileCodeEnvironmentLifecycle(options)
       .catch((error) => {
+        // Suppress connection race errors during startup
+        if (error?.message?.includes('before initial connection is complete')) {
+          return;
+        }
         logger.error('[code-environments] lifecycle reconciliation failed:', error);
       })
       .finally(() => {
