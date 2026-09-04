@@ -33,13 +33,11 @@ services:
       - key: CREDS_IV
         generateValue: true
       
-      # Endpoints - cho phép user tự cung cấp API keys
-      - key: OPENAI_API_KEY
-        value: user_provided
-      - key: ANTHROPIC_API_KEY
-        value: user_provided
-      - key: GOOGLE_KEY
-        value: user_provided
+      # Custom Endpoints - Vilao AI & A6 API
+      - key: VILAO_API_KEY
+        value: sk-3bc552c860e5504bbc7d8aa467d478634290c6e931fc707a242bad5649012da1
+      - key: A6_API_KEY
+        value: sk-Iv5SkSz6myXI83SYjRyerLMbRRbGZpUXolJ6iJ9PC4jOZhvN
       
       # UI
       - key: APP_TITLE

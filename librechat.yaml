@@ -1,0 +1,88 @@
+# LibreChat Configuration
+# https://www.librechat.ai/docs/configuration/librechat_yaml
+
+version: 1.1.5
+
+cache: true
+
+# Bật registration
+registration:
+  socialLogins: []
+  allowedDomains: []
+
+# Cấu hình endpoints
+endpoints:
+  # ===================================
+  # Custom OpenAI-compatible endpoints
+  # ===================================
+  
+  custom:
+    # Vilao AI
+    - name: "Vilao AI"
+      apiKey: "${VILAO_API_KEY}"
+      baseURL: "https://api.vilao.ai/v1"
+      models:
+        default:
+          - "aaa/gpt-5.6-sol"
+        fetch: false
+      titleConvo: true
+      titleModel: "aaa/gpt-5.6-sol"
+      summarize: false
+      summaryModel: "aaa/gpt-5.6-sol"
+      forcePrompt: false
+      modelDisplayLabel: "Vilao AI"
+      iconURL: "https://api.vilao.ai/favicon.ico"
+
+    # A6 API
+    - name: "A6 API"
+      apiKey: "${A6_API_KEY}"
+      baseURL: "https://api.a6api.com/v1"
+      models:
+        default:
+          - "gpt-5.6-sol"
+        fetch: false
+      titleConvo: true
+      titleModel: "gpt-5.6-sol"
+      summarize: false
+      summaryModel: "gpt-5.6-sol"
+      forcePrompt: false
+      modelDisplayLabel: "A6 API"
+      iconURL: "https://api.a6api.com/favicon.ico"
+
+  # ===================================
+  # Ẩn các provider mặc định
+  # ===================================
+  
+  # Tắt OpenAI mặc định
+  openAI:
+    disabled: true
+  
+  # Tắt Anthropic
+  anthropic:
+    disabled: true
+  
+  # Tắt Google
+  google:
+    disabled: true
+  
+  # Tắt các provider khác
+  azureOpenAI:
+    disabled: true
+  
+  bedrock:
+    disabled: true
+  
+  agents:
+    disabled: true
+
+# UI Configuration
+interface:
+  # Cho phép user chọn endpoint
+  endpointsMenu: true
+  # Hiển thị settings
+  settings: true
+  # Cho phép user export data
+  privacyPolicy:
+    externalUrl: ""
+  termsOfService:
+    externalUrl: ""
