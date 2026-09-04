@@ -65,13 +65,11 @@ endpoints:
   google:
     disabled: true
   
-  # Tắt các provider khác
-  azureOpenAI:
-    disabled: true
-  
+  # Tắt Bedrock
   bedrock:
     disabled: true
   
+  # Tắt Agents
   agents:
     disabled: true
 
